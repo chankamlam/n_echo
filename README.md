@@ -3,8 +3,6 @@ cargo build && cargo test
 ```
 
 
-man echo on macos
-
 ```
 ECHO(1)                                                  General Commands Manual                                                  ECHO(1)
 
