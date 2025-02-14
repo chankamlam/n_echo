@@ -11,11 +11,10 @@ fn main() {
     .arg(arg!(-n --omit_newline "Do not print the trailing newline character.").action(ArgAction::SetTrue))
     .get_matches();
 
-    let arg_text = matches.get_many::<String>("TEXT").unwrap_or_default().map(|txt|txt.as_str()).collect::<Vec<
-    _>>();
-    let arg_omit_newline = matches.get_flag("omit_newline");
+    let arg_text:Vec<&str> = matches.get_many::<String>("TEXT").unwrap_or_default().map(|txt|txt.as_str()).collect();
+    let omit_newline = matches.get_flag("omit_newline");
 
-    print!("{}{}",arg_text.join(" "),if arg_omit_newline {""}else{"\n"});
+    print!("{}{}",arg_text.join(" "),if omit_newline {""}else{"\n"});
     
 }
 
